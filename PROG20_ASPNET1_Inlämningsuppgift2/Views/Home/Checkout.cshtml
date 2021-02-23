@@ -1,0 +1,23 @@
+﻿@model PROG20_ASPNET1_Inlämningsuppgift2.ViewModels.BestallningMatrattViewModel
+
+
+    <h3>Din varukorg: </h3>
+
+    <table>
+        @foreach (var product in Model.Matratter)
+        {
+            <tr>
+                <td>@product.MatrattNamn</td>
+                <td>@product.Pris kr</td>
+            </tr>
+        }
+
+        <tr>
+            <td><b>Summa:</b></td>
+            <td><b>@Model.Matratter.Sum(p => p.Pris) kr</b></td>
+        </tr>
+    </table>
+
+<br />
+
+    <a asp-controller="Home" asp-action="CheckoutConfirm" class="btn"><button>Beställ</button></a>

@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PROG20_ASPNET1_Inlämningsuppgift2.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+
+@if (signInManager.IsSignedIn(User))
+{
+    <ul class="rightMenu">
+        <li><a asp-controller="Account" asp-action="LoggedIn">Mitt konto</a></li>
+        <li><a asp-controller="Home" asp-action="Checkout">Varukorg</a></li>
+        <li><a asp-controller="Account" asp-action="LogOff">Logga ut</a> </li>
+    </ul>
+}
+else
+{
+    <ul class="rightMenu">
+        <li><a asp-controller="Account" asp-action="Login">Logga in</a> </li>
+        <li><a asp-controller="Account" asp-action="Register">Registrera konto</a> </li>
+    </ul>
+
+}

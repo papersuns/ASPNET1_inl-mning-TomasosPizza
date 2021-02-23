@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/Styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Tomasos Pizzeria</a></li>
+                <li><a asp-controller="Home" asp-action="Menu">Meny</a></li>
+                <partial name="_LoginPartial" />
+            </ul>
+
+        </nav>
+    </header>
+
+    <div id="main">
+
+        @RenderBody()
+
+    </div>
+
+    <footer>
+        <div>
+            <h4>Tomasos</h4>
+            <p>Tomtebodavägen 3A <br />
+               171 65 Solna</p>
+            <p>08 - 466 60 00</p>
+        </div>
+        <div>
+            <h4>Öppettider:</h4>
+            <p>Mån-Tors 11-21 <br />
+            Fre-Lör 11-22 <br />
+            Sön 11-21</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

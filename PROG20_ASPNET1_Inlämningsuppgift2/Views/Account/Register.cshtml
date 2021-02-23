@@ -1,0 +1,65 @@
+﻿@model PROG20_ASPNET1_Inlämningsuppgift2.Models.Kund
+    
+    <!--för att köra validering på klienten-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+    <div class="centerDiv">
+        <form class="centerForm" asp-controller="Account" asp-action="Register" method="post">
+            <br />
+
+            <label asp-for="Namn"></label><br />
+            <input type="text" asp-for="Namn" /><br />
+            <span asp-validation-for="Namn"></span>
+
+            <br />
+
+            <label asp-for="Gatuadress"></label><br />
+            <input type="text" asp-for="Gatuadress" /><br />
+            <span asp-validation-for="Gatuadress"></span>
+
+            <br />
+
+            <label asp-for="Postnr"></label><br />
+            <input type="text" asp-for="Postnr" /><br />
+            <span asp-validation-for="Postnr"></span>
+
+            <br />
+
+            <label asp-for="Postort"></label><br />
+            <input type="text" asp-for="Postort" /><br />
+            <span asp-validation-for="Postort"></span>
+
+            <br />
+
+            <label asp-for="Email"></label><br />
+            <input type="text" asp-for="Email" /><br />
+            <span asp-validation-for="Email"></span>
+
+            <br />
+
+            <label asp-for="Telefon"></label><br />
+            <input type="text" asp-for="Telefon" /><br />
+            <span asp-validation-for="Telefon"></span>
+
+            <br />
+
+            <label asp-for="AnvandarNamn">Användarnamn</label><br />
+            <input type="text" asp-for="AnvandarNamn" /><br />
+            <span asp-validation-for="AnvandarNamn"></span>
+
+            <br />
+
+            <label asp-for="Losenord">Lösenord</label><br />
+            <input type="password" asp-for="Losenord" /><br />
+            <span asp-validation-for="Losenord"></span>
+
+            <br /><br />
+
+            <button type="submit">Skapa Konto</button>
+
+        </form>
+
+        <p>@ViewBag.Message</p>
+    </div>

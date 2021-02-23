@@ -1,0 +1,101 @@
+﻿@model PROG20_ASPNET1_Inlämningsuppgift2.ViewModels.MatrattProduktViewModel
+
+@using Microsoft.AspNetCore.Identity
+@using PROG20_ASPNET1_Inlämningsuppgift2.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+
+<table>
+    <colgroup span="4"></colgroup>
+    <thead>
+        <tr>
+            <th colspan="4" scope="colgroup">Pizza</th>
+        </tr>
+    </thead>
+    @foreach (var product in Model.Matratter.Where(t => t.MatrattTyp == 1))
+    {
+        <tr>
+            <td><b>@product.MatrattNamn</b></td>
+            <td>
+                @foreach (var item in Model.MatrattProdukt.Where(p => p.MatrattId == product.MatrattId))
+                {
+                    @foreach (var ingredient in Model.Ingredienser.Where(r => r.ProduktId == item.ProduktId))
+                    {
+                         @ingredient.ProduktNamn  
+                    }
+                }
+            </td>
+            <td class="td-right">@product.Pris kr</td>
+            <td class="td-right">
+            @if (signInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Home" asp-action="AddProductToCart" asp-route-id=@product.MatrattId>Lägg i varukorg</a>
+            }
+            </td>
+        </tr>
+    }
+
+</table>
+<table>
+    <colgroup span="4"></colgroup>
+    <thead>
+        <tr>
+            <th colspan="4" scope="colgroup">Pasta</th>
+        </tr>
+    </thead>
+    @foreach (var product in Model.Matratter.Where(t => t.MatrattTyp == 2))
+    {
+        <tr>
+            <td><b>@product.MatrattNamn</b></td>
+            <td>
+                @foreach (var item in Model.MatrattProdukt.Where(p => p.MatrattId == product.MatrattId))
+                {
+                    @foreach (var ingredient in Model.Ingredienser.Where(r => r.ProduktId == item.ProduktId))
+                    {
+                         @ingredient.ProduktNamn  
+                    }
+                }
+            </td>
+            <td class="td-right">@product.Pris kr</td>
+            <td class="td-right">
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Home" asp-action="AddProductToCart" asp-route-id=@product.MatrattId>Lägg i varukorg</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<table>
+    <colgroup span="4"></colgroup>
+    <thead>
+        <tr>
+            <th colspan="4" scope="colgroup">Sallad</th>
+        </tr>
+    </thead>
+    @foreach (var product in Model.Matratter.Where(t => t.MatrattTyp == 3))
+    {
+        <tr>
+            <td><b>@product.MatrattNamn</b></td>
+                         <td>
+                @foreach (var item in Model.MatrattProdukt.Where(p => p.MatrattId == product.MatrattId))
+                {
+                    @foreach (var ingredient in Model.Ingredienser.Where(r => r.ProduktId == item.ProduktId))
+                    {
+                         @ingredient.ProduktNamn  
+                    }
+                }
+            </td>
+            <td class="td-right">@product.Pris kr</td>
+            <td class="td-right">
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Home" asp-action="AddProductToCart" asp-route-id=@product.MatrattId>Lägg i varukorg</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
