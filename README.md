@@ -1,7 +1,8 @@
 # ASPNET1_inl-mningsuppgift
 The main project I did for the ASP.NET 1 course
+(unfinished admin functionality)
 
-Description: (SWE)
+Description: (SWE) 
 Inlämningsuppgift 2: Skapa webbsajt för Tomasos pizzeria
 
 Beskrivning
